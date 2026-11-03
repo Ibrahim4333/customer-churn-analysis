@@ -122,13 +122,10 @@ These two assumptions are illustrative, not measured from the data; a real campa
 
 ## Dashboard
 
-## Dashboard
+![Dashboard](reports/figures/dashboard.png)
 
-An interactive **Power BI** dashboard (`reports/figures/dashboard.png`) with a contract slicer, churn drivers by tenure, internet service and payment method, top churn reasons, and a retention scenario.
+An interactive dashboard with a contract slicer, churn drivers by tenure, internet service and payment method, top churn reasons, and a retention scenario. A Streamlit version is included: run `streamlit run app.py`.
 
-A Streamlit version is also included: run `streamlit run app.py`.
-
-`[Dashboard](reports/figures/dashboard.png)`
 
 ## Limitations
 

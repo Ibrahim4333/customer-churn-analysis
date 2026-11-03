@@ -122,7 +122,11 @@ These two assumptions are illustrative, not measured from the data; a real campa
 
 ## Dashboard
 
-Run `streamlit run app.py` for an interactive dashboard with filters, churn drivers, risk tiers, a downloadable list of active high-risk customers to contact, and a retention scenario with adjustable assumptions.
+## Dashboard
+
+An interactive **Power BI** dashboard (`reports/figures/dashboard.png`) with a contract slicer, churn drivers by tenure, internet service and payment method, top churn reasons, and a retention scenario.
+
+A Streamlit version is also included: run `streamlit run app.py`.
 
 `[Dashboard](reports/figures/dashboard.png)`
 

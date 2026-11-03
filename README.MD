@@ -29,13 +29,13 @@ Python (pandas, scikit-learn, matplotlib, seaborn), SQL (MySQL / SQLite), Stream
 churn-analysis/
 ├── README.md
 ├── requirements.txt
-├── 01_cleaning.py          # clean data, add features, load into SQLite
-├── churn_queries.sql       # 10 business questions in SQL
-├── 02_eda.py               # exploratory analysis and charts
-├── 03_modeling.py          # logistic regression and random forest, risk scores
-├── app.py                  # Streamlit dashboard
-├── data/                   # raw data and generated files
-└── reports/figures/        # charts used below
+├── 01_cleaning.ipynb          # clean data, add features, load into SQLite
+├── churn_queries.sql          # 10 business questions in SQL
+├── 02_eda.ipynb               # exploratory analysis and charts
+├── 03_modeling.ipynb          # logistic regression and random forest, risk scores
+├── app.py                     # Streamlit dashboard
+├── data/                      # data and generated files
+└── reports/figures/           # charts used below
 ```
 
 ## Approach
@@ -139,9 +139,7 @@ An interactive dashboard with a contract slicer, churn drivers by tenure, intern
 ```bash
 pip install -r requirements.txt
 # put Telco_customer_churn.xlsx in data/
-python 01_cleaning.py
-python 02_eda.py
-python 03_modeling.py
+# run the notebooks in order: 01, 02, 03
 streamlit run app.py
 ```
 

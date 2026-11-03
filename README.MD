@@ -72,11 +72,11 @@ churn-analysis/
 Two models were compared on a held-out test set of 1,409 customers (374 churners). Because only 26.5% of customers churn, a model that predicts "nobody leaves" would be 73.5% accurate and useless, so I report **recall and precision for churners** instead of accuracy.
 
 Model comparison (test set):
-                      precision  recall     f1  roc_auc  accuracy
-model                                                           
-Logistic Regression      0.511   0.781  0.618    0.849     0.744
-Random Forest            0.558   0.730  0.633    0.853     0.775
-Baseline 'nobody churns' accuracy: 0.735 (recall = 0)
+| Model | Precision | Recall | F1 | ROC-AUC | Accuracy |
+|---|---|---|---|---|---|
+| Logistic Regression | 0.511 | 0.781 | 0.618 | 0.849 | 0.744 |
+| Random Forest | 0.558 | 0.730 | 0.633 | 0.853 | 0.775 |
+| Baseline ("nobody churns") | 0.000 | 0.000 | n/a | 0.500 | 0.735 |
 
 Best model by ROC-AUC: Random Forest (5-fold out-of-fold AUC = 0.859)
 

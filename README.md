@@ -21,21 +21,21 @@ I analyzed 7,043 telecom customers using SQL and Python, found what drives churn
 
 ## Tools
 
-Python (pandas, scikit-learn, matplotlib, seaborn), SQL (MySQL / SQLite), Streamlit and Plotly for the dashboard.
+Python (pandas, scikit-learn, matplotlib, seaborn), SQL (MySQL / SQLite), Power BI, Streamlit and Plotly.
 
 ## Project structure
 
 ```
-churn-analysis/
+customer-churn-analysis/
 ├── README.md
 ├── requirements.txt
-├── 01_cleaning.ipynb          # clean data, add features, load into SQLite
-├── churn_queries.sql          # 10 business questions in SQL
-├── 02_eda.ipynb               # exploratory analysis and charts
-├── 03_modeling.ipynb          # logistic regression and random forest, risk scores
-├── app.py                     # Streamlit dashboard
-├── data/                      # data and generated files
-└── reports/figures/           # charts used below
+├── 01_customer_analysis.ipynb   # cleaning, features, SQLite load
+├── churn_queries.sql            # 10 business questions in SQL
+├── 02_eda.ipynb                 # exploratory analysis and charts
+├── 03_modeling.ipynb            # logistic regression, random forest, risk scores
+├── app.py                       # Streamlit dashboard
+├── data/                        # dataset and generated files
+└── reports/figures/             # charts used below
 ```
 
 ## Approach
@@ -71,14 +71,13 @@ churn-analysis/
 
 Two models were compared on a held-out test set of 1,409 customers (374 churners). Because only 26.5% of customers churn, a model that predicts "nobody leaves" would be 73.5% accurate and useless, so I report **recall and precision for churners** instead of accuracy.
 
-Model comparison (test set):
 | Model | Precision | Recall | F1 | ROC-AUC | Accuracy |
 |---|---|---|---|---|---|
 | Logistic Regression | 0.511 | 0.781 | 0.618 | 0.849 | 0.744 |
 | Random Forest | 0.558 | 0.730 | 0.633 | 0.853 | 0.775 |
 | Baseline ("nobody churns") | 0.000 | 0.000 | n/a | 0.500 | 0.735 |
 
-Best model by ROC-AUC: Random Forest (5-fold out-of-fold AUC = 0.859)
+Precision and recall are for the churn class. Best model by ROC-AUC: **Random Forest** (5-fold out-of-fold AUC = 0.859).
 
 **Choosing an action threshold.** The best model's probability threshold controls how many customers get contacted:
 
@@ -107,7 +106,7 @@ A low threshold catches more churners but wastes more offers; a high threshold i
 
 Using out-of-fold predictions for all customers, the **High-risk tier** contains **1,303 customers**; **68.4%** of them actually churned, and the tier covers **47.7%** of all churners. Those churners held **$853,478** in annual revenue.
 
-| Assumption (editable in `03_modeling.py` and the dashboard) | Value |
+| Assumption (editable in the modeling notebook and the dashboard) | Value |
 |---|---|
 | Share of at-risk customers a retention offer keeps | 20% |
 | Cost per customer contacted | $30 |
@@ -125,7 +124,6 @@ These two assumptions are illustrative, not measured from the data; a real campa
 ![Dashboard](reports/figures/dashboard.png)
 
 An interactive dashboard with a contract slicer, churn drivers by tenure, internet service and payment method, top churn reasons, and a retention scenario. A Streamlit version is included: run `streamlit run app.py`.
-
 
 ## Limitations
 
